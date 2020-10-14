@@ -14,6 +14,7 @@ public class Main {
         hashSymbolTable.insertSymbol("211");
         hashSymbolTable.insertSymbol("adverb");
         hashSymbolTable.insertSymbol("braved");
+        hashSymbolTable.insertSymbol("braved");
 
         System.out.println(hashSymbolTable.printTable());
         System.out.println( hashSymbolTable.findBySymbol("braved").toString());
