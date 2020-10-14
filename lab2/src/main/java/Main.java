@@ -18,6 +18,7 @@ public class Main {
         System.out.println(hashSymbolTable.printTable());
         System.out.println( hashSymbolTable.findBySymbol("braved").toString());
         System.out.println( hashSymbolTable.findBySymbol("adverb").toString());
+        System.out.println(hashSymbolTable.findBySymbol("kk").toString());
 
 
     }
