@@ -1,0 +1,16 @@
+~~ verify if a number is prime
+peEcran "Specify a number" \
+peTastatura numarPrim \
+YesNo equals(isPrim,true)\
+Decides (equalsOrSmaller(numarPrim,1))
+{
+equals(isPrim,false)\
+}
+PasCuPas(rigid equals(i,2) \ smaller(i,numarPrim) \ equals(i,i+1))
+{
+Decides(n % i is 0){
+equals(isPrim,false)\
+}
+}
+equals(isPrim,true)\
+peEcran "The number"+ numarPrim+ " is prime is " + isPrim\

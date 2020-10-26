@@ -13,9 +13,15 @@ public class Main {
     public static void main(String[] args) {
 
 
-        HashSymbolTable symbolTable = new HashSymbolTable(131);
+        HashSymbolTable symbolTable1 = new HashSymbolTable(131);
+        HashSymbolTable symbolTable2 = new HashSymbolTable(131);
+        HashSymbolTable symbolTable3 = new HashSymbolTable(131);
+        HashSymbolTable symbolTableerr = new HashSymbolTable(131);
 
-        List<String> dataList = readFromFile("C:\\babes\\LFTC\\lab2FLCD\\FLCD\\p1err.txt");
+        List<String> dataList3 = readFromFile("C:\\babes\\LFTC\\lab2FLCD\\FLCD\\p3.txt");
+        List<String> dataList1=readFromFile("C:\\babes\\LFTC\\lab2FLCD\\FLCD\\p1.txt");
+        List<String> dataList2=readFromFile("C:\\babes\\LFTC\\lab2FLCD\\FLCD\\p2.txt");
+        List<String> dataListerr=readFromFile("C:\\babes\\LFTC\\lab2FLCD\\FLCD\\p1err.txt");
         List<String> tokenss = readFromFile("C:\\babes\\LFTC\\lab2FLCD\\FLCD\\tokne.in");
 
         String[] operators = new String[0];
@@ -42,21 +48,46 @@ public class Main {
         List<String> reservedWordsList = new ArrayList<>();
         reservedWordsList.addAll(Arrays.asList(reservedWords));
 
-        List<Pair<String, Pair<Integer, Integer>>> pifTable = new ArrayList<>();
-        List<String> errors=new ArrayList<>();
+        List<Pair<String, Pair<Integer, Integer>>> pifTable1 = new ArrayList<>();
+        List<Pair<String, Pair<Integer, Integer>>> pifTable2 = new ArrayList<>();
+        List<Pair<String, Pair<Integer, Integer>>> pifTable3 = new ArrayList<>();
+        List<Pair<String, Pair<Integer, Integer>>> pifTableerr = new ArrayList<>();
+        List<String> errors1=new ArrayList<>();
+        List<String> errors2=new ArrayList<>();
+        List<String> errors3=new ArrayList<>();
+        List<String> errorsErr=new ArrayList<>();
 
 
-        addInST(symbolTable, dataList, separatorList, operatorList, reservedWordsList);
+        addInST(symbolTable1, dataList1, separatorList, operatorList, reservedWordsList);
+        addInPif(symbolTable1, dataList1, separatorList, operatorList, reservedWordsList, pifTable1,errors1);
+
+        addInST(symbolTable2, dataList2, separatorList, operatorList, reservedWordsList);
+        addInPif(symbolTable2, dataList2, separatorList, operatorList, reservedWordsList, pifTable2,errors2);
+
+        addInST(symbolTable3, dataList3, separatorList, operatorList, reservedWordsList);
+        addInPif(symbolTable3, dataList3, separatorList, operatorList, reservedWordsList, pifTable3,errors3);
+
+        addInST(symbolTableerr, dataListerr, separatorList, operatorList, reservedWordsList);
+        addInPif(symbolTableerr, dataListerr, separatorList, operatorList, reservedWordsList, pifTableerr,errorsErr);
 
 
-        addInPif(symbolTable, dataList, separatorList, operatorList, reservedWordsList, pifTable,errors);
 
+        createAndWriteST("st1.out",symbolTable1);
+        createAndWritePif("pif1.out",pifTable1);
+        createAndWriteMessage("message1.out",errors1);
 
-        System.out.println(symbolTable.printTable());
-        System.out.println(pifTable);
-        createAndWriteST("st.out",symbolTable);
-        createAndWritePif("pif.out",pifTable);
-        createAndWriteMessage("message.out",errors);
+        createAndWriteST("st2.out",symbolTable2);
+        createAndWritePif("pif2.out",pifTable2);
+        createAndWriteMessage("message2.out",errors2);
+
+        createAndWriteST("st3.out",symbolTable3);
+        createAndWritePif("pif3.out",pifTable3);
+        createAndWriteMessage("message3.out",errors3);
+
+        createAndWriteST("st1err.out",symbolTableerr);
+        createAndWritePif("pif1err.out",pifTableerr);
+        createAndWriteMessage("messageErr.out",errorsErr);
+
     }
 
     private static void addInST(HashSymbolTable symbolTable, List<String> dataList, List<String> separatorList, List<String> operatorList, List<String> reservedWordsList) {
@@ -182,7 +213,7 @@ public class Main {
         ArrayList<String> all_tokens = new ArrayList<String>();
         char[] chaes = x.toCharArray();
         int where = 0;
-        String[] words = x.split("[+\\- /,{}()\\[\\]\\\\%*]");
+        String[] words = x.split("[+\\-=. /,{}()\\[\\]\\\\%*]");
         for (String s : words) {
             where += s.length();
             all_tokens.add(s);

@@ -1,3 +1,3 @@
-Operators@+;-;*;/;is;equals;equalsOrSmaller;smaller;equalsOrGreater;greater
-Separators@ ;,;\;{;};(;);[;];%;~~
-ReservedWords@decides;else;PasCuPas;YesNo;rigid;peEcran;peTastatura;and;IntArray
+Operators@+;-;=;*;/;is;equals;equalsOrSmaller;smaller;equalsOrGreater;greater
+Separators@ ;,;\;{;};(;);[;];.;%;~~
+ReservedWords@Decides;else;PasCuPas;YesNo;rigid;peEcran;peTastatura;and;IntArray;size

@@ -7,7 +7,7 @@ peTastatura secondNumber\
 PasCuPas(equals(i,1) \ equalsOrSmaller(i,firstNumber) and
 equalsOrSmaller(i,secondNumber) \ equals(i,i+1))
 {
-decides (firstNumber % i is 0 and secondNumber % i is 0)
+Decides (firstNumber % i is 0 and secondNumber % i is 0)
 {
 equals(gcd,i)\
 }

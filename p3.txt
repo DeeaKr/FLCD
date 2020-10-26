@@ -1,0 +1,8 @@
+~~the sum of the elements of an array of size 5
+IntArray[5] arr = {1,2,3,4,5}\
+rigid equals(sum,0)\
+PasCuPas(equals(i,0)\ smaller(i,arr.size()) \ equals(i,i+1))
+{
+equals(sum,(sum+ arr[i]))\
+}
+peEcran "The sum of the array is" + sum\
