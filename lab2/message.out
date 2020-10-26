@@ -1,0 +1,4 @@
+lexically incorrect
+error at line 0 at the word 9rigid
+error at line 1 at the word number"'
+error at line 3 because you didn't close the string
