@@ -1,10 +1,10 @@
 ~~gcd of two numbers
-9rigid firstNumber,secondNumber,equals(gcd,1),i\
+9rigid firstNumber,secondNumber,equals(gcd,01),i\
 peEcran "Enter first number"'
 peTastatura firstNumber\
 peEcran "Enter second number\
 peTastatura secondNumber\
-PasCuPas(equals(i,1) \ equalsOrSmaller(i,firstNumber) and
+PasCuPas(equals(i,-1) \ equalsOrSmaller(i,firstNumber) and
 equalsOrSmaller(i,secondNumber) \ equals(i,i+1))
 {
 Decides (firstNumber % i is 0 and secondNumber % i is 0)

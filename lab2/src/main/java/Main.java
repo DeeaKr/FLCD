@@ -101,7 +101,8 @@ public class Main {
                 line = line.replace(quote, "");
             }
             ArrayList<String> linesplit = tokenize(line);
-            for (String word : linesplit) {
+            for (int j=0;j<=linesplit.size()-1;j++) {
+                String word=linesplit.get(j);
 
                 if (!(reservedWordsList.contains(word) || operatorList.contains(word) || separatorList.contains(word) || !checkIfLexicallyCorrect(word) || word.contains("\""))) {
                     symbolTable.insertSymbol(word);
@@ -167,7 +168,8 @@ public class Main {
                         Pair<Integer, Integer> p1 = new Pair<>(positions.get(0), positions.get(1));
                         Pair<String, Pair<Integer, Integer>> p = new Pair<>("const", p1);
                         pifTable.add(p);
-                    } else if (!checkIfLexicallyCorrect(word)) {
+                    }
+                    else if (!checkIfLexicallyCorrect(word)) {
                         String error="error at line " + lineC + " at the word " + word;
                         errors.add(error);
                     }
@@ -193,12 +195,17 @@ public class Main {
     public static boolean checkIfLexicallyCorrect(String val) {
         if (!val.equals("")) {
             if (Character.isDigit(val.charAt(0))) {
-                for (int i = 1; i < val.length(); i++) {
-                    if (Character.isLetter(val.charAt(i))) {
-                        return false;
+                if(val.charAt(0)=='0' && val.length()!=1){
+                    return false;
+                }else {
+                    for (int i = 1; i < val.length(); i++) {
+                        if (Character.isLetter(val.charAt(i))) {
+                            return false;
+                        }
                     }
                 }
-            } else {
+            }
+            else {
                 for (int i = 0; i < val.length(); i++) {
                     if (!(Character.isLetter(val.charAt(i)) || Character.isDigit(val.charAt(i)) || val.charAt(i) == '"')) {
                         return false;

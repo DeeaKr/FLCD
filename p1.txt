@@ -12,4 +12,4 @@ Decides (firstNumber % i is 0 and secondNumber % i is 0)
 equals(gcd,i)\
 }
 }
-peEcran "GCD of" + firstNumber +"and"+ secondNumber+" is "+ gcd\
+peEcran "GCD of" + firstNumber + "and" + secondNumber + " is " + gcd\
