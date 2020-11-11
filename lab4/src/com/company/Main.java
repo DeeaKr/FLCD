@@ -37,7 +37,7 @@ public class Main {
                 System.out.println(fa.getInitialState());
                 break;
             case 7:
-                System.out.println(fa.isSequenceAccepted("ab"));
+                System.out.println(fa.isSequenceAccepted("b"));
                 break;
             case 8:
                 fa.validations();
