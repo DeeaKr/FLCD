@@ -68,6 +68,77 @@ public class FA {
 
         return true;
     }
+    public void validations(){
+        boolean finalStateAmongStates=true;
+        boolean initialStateAmongStates=true;
+        boolean transitionsAmongStates=true;
+        for(String finalS: finalStates){
+            if(!states.contains(finalS)){
+                finalStateAmongStates=false;
+            }
+        }
+        if(!states.contains(initialState)){
+            initialStateAmongStates=false;
+        }
+        for(Pair<String,String> keys: transitions.keySet()){
+            for(String val:transitions.get(keys)){
+            if(!states.contains(keys.getKey()) || !states.contains(val)){
+                transitionsAmongStates=false;
+            }
+        }}
+
+        if(finalStateAmongStates){
+            System.out.println("The final states are among all states");
+        }
+        else{
+            System.out.println("The final states are new states. We don't know them");
+        }
+
+        if(initialStateAmongStates){
+            System.out.println("The initial state is among all states");
+        }
+        else{
+            System.out.println("The initial state is a new state. We don't know this state");
+        }
+        if(transitionsAmongStates){
+            System.out.println("The states from transition are among all states");
+        }
+        else{
+            System.out.println(
+                    "The states from transitions are some new states. We don't know them"
+            );
+        }
+
+
+    }
+
+    public boolean isSequenceAccepted(String sequence){
+        if(ifDeterministic()) {
+            String current = initialState;
+            int i = 0;
+            boolean found = true;
+            while (i < sequence.length() && found) {
+                found = false;
+                for (Pair<String, String> keys : transitions.keySet()) {
+                    if (keys.getKey().equals(current) && keys.getValue().equals(String.valueOf(sequence.charAt(i)))) {
+                        current = transitions.get(keys).get(0);
+                        found = true;
+                    }
+                }
+                i++;
+            }
+            return finalStates.contains(current) && i == sequence.length();
+        }
+        else{
+            System.out.println("Is not deterministic");
+            return false;
+        }
+
+
+
+    }
+
+
 
     private void readFromFile(String filename){
 

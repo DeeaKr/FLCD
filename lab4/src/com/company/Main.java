@@ -36,6 +36,12 @@ public class Main {
             case 6:
                 System.out.println(fa.getInitialState());
                 break;
+            case 7:
+                System.out.println(fa.isSequenceAccepted("ab"));
+                break;
+            case 8:
+                fa.validations();
+                break;
             case 0:
                 return;
         }
@@ -51,6 +57,8 @@ public class Main {
         System.out.println("4.Final states");
         System.out.println("5.Check if deterministic");
         System.out.println("6.Initial State");
+        System.out.println("7.Is Sequence Accepted?");
+        System.out.println("8.Validate Inputs");
         System.out.println("0.Exit");
     }
 }
